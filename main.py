@@ -56,7 +56,8 @@ if __name__ == "__main__":
     application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
     start_handler = CommandHandler("start", start)
-    start_handler = CommandHandler("start_daily", send_daily_question)
+    start_daily_handler = CommandHandler("start_daily", send_daily_question)
     application.add_handler(start_handler)
+    application.add_handler(start_daily_handler)
 
     application.run_polling()

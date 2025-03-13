@@ -1,4 +1,3 @@
-pyTelegramBotAPI
-google-generativeai
+python-telegram-bot
 schedule
 python-dotenv

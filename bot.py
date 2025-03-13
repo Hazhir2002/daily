@@ -48,7 +48,7 @@ async def main():
     app.add_handler(CommandHandler("start_daily", send_daily_question))
 
     logger.info("Bot is running...")
-    app.run_polling()
+    await app.run_polling()
 
 
 if __name__ == "__main__":

@@ -35,10 +35,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
-# async def send_daily_question(update: Update, context: CallbackContext) -> None:
-#     """Send daily questions."""
-#     questions = "\n".join(daily_questions)
-#     await update.message.reply_text(questions)
+async def send_daily_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Send daily questions."""
+    questions = "\n".join(daily_questions)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=questions)
 
 
 # async def main():
@@ -56,6 +56,7 @@ if __name__ == "__main__":
     application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
     start_handler = CommandHandler("start", start)
+    start_handler = CommandHandler("start_daily", send_daily_question)
     application.add_handler(start_handler)
 
     application.run_polling()
